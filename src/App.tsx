@@ -1,41 +1,18 @@
-import React, { useState } from "react";
+import React from "react";
 import "./App.css";
-import QRCode from "qrcode";
+import CodeGenerator from "./Components/CodeGenerator";
+import CodeReader from "./Components/CodeReader";
 
 function App() {
-  const [text, setText] = useState("");
-  const [image, setImage] = useState("");
-
-  const generateQRCode = async () => {
-    try {
-      const response = await QRCode.toDataURL(text);
-      setImage(response);
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
   return (
     <div className="App">
-      <input value={text} onChange={(e) => setText(e.target.value)} />
-      <button
-        onClick={() => {
-          if (text) {
-            generateQRCode();
-          } else {
-            console.log("Wpisz cos");
-          }
-        }}
-      >
-        Generate code
-      </button>
-      {image ? (
-        <a href={image} download={text}>
-          <img src={image} alt={text} />
-        </a>
-      ) : (
-        ""
-      )}
+      <header>
+        <h1>QRCode center</h1>
+        <h2>All in one place</h2>
+      </header>
+      <CodeGenerator />
+      <CodeReader />
+      <footer>Footer</footer>
     </div>
   );
 }
