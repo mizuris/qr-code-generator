@@ -21,7 +21,7 @@ function CodeReader() {
     <div className="reader-container">
       <QrReader
         delay={300}
-        style={{ width: "50%" }}
+        style={{ width: "100%" }}
         onScan={handleScan}
         onError={handleError}
       />
