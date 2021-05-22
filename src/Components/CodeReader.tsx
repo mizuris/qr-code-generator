@@ -18,14 +18,14 @@ function CodeReader() {
   };
 
   return (
-    <div>
+    <div className="reader-container">
       <QrReader
         delay={300}
         style={{ width: "50%" }}
         onScan={handleScan}
         onError={handleError}
       />
-      <p>Scanned code result: {scan.result}</p>
+      <p className="reader-result">Scanned code result: {scan.result}</p>
     </div>
   );
 }

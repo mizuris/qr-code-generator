@@ -20,14 +20,14 @@ function CodeGenerator() {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className="generator-container">
+      <form className="generator-form" onSubmit={handleSubmit}>
         <input value={qrText} onChange={(e) => setQrText(e.target.value)} />
         <input type="submit" value="Generate code" />
       </form>
       {qrUrl ? (
         <a href={qrUrl} download={qrText}>
-          <img src={qrUrl} alt={qrText} />
+          <img className="generator-result" src={qrUrl} alt={qrText} />
         </a>
       ) : (
         ""
