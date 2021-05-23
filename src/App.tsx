@@ -17,12 +17,12 @@ function App() {
     <div className="App">
       <header className="App-header">
         <h1>QRCode Center</h1>
-        <h2>All in one place</h2>
+        <h4 className="text-muted">Scan and generate your QR codes!</h4>
       </header>
-      <Button onClick={() => switchDisplay()}>
+      <Button className="switch-button" onClick={() => switchDisplay()}>
         Switch to {displayComponent === "generator" ? "reader" : "generator"}
       </Button>
-      <Container>
+      <Container className="App-content">
         <Row>
           {displayComponent === "generator" ? (
             <Col>

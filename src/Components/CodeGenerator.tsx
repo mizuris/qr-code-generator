@@ -22,8 +22,7 @@ function CodeGenerator() {
 
   return (
     <div className="generator-container">
-      <Form className="generator-form" onSubmit={handleSubmit}>
-        <Form.Label>Get your QR code</Form.Label>
+      <Form className="generator-form ml-auto mr-auto" onSubmit={handleSubmit}>
         <Form.Control
           className="generator-input"
           type="text"
@@ -31,14 +30,16 @@ function CodeGenerator() {
           placeholder="Text to convert"
           onChange={(e) => setQrText(e.target.value)}
         />
-        <Button type="submit" variant="success">
-          Generate code
+        <Button className="generator-button" type="submit" variant="success">
+          Generate
         </Button>
       </Form>
       {qrUrl ? (
-        <a href={qrUrl} download={qrText}>
-          <img className="generator-result" src={qrUrl} alt={qrText} />
-        </a>
+        <div className="generator-result">
+          <a href={qrUrl} download={qrText}>
+            <img className="generator-result-img" src={qrUrl} alt={qrText} />
+          </a>
+        </div>
       ) : (
         ""
       )}

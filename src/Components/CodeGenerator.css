@@ -1,7 +1,15 @@
-.reader-container {
-    flex-direction: column;
+.generator-form {
+  width: 80%;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
 }
 
-.reader-content {
+.generator-result {
+    margin-top: 50px;
     width: 100%;
+}
+
+.generator-result-img {
+    width: 60%;
 }
