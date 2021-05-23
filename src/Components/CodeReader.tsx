@@ -7,6 +7,12 @@ function CodeReader() {
     error: "",
   });
 
+  const [options, setOptions] = useState({
+    legacyMode: false,
+    resolution: 600,
+    delay: 500,
+  });
+
   const handleScan = (data: string | null) => {
     if (data) {
       setScan({ ...scan, result: data });
@@ -19,9 +25,29 @@ function CodeReader() {
 
   return (
     <div className="reader-container">
+      <div className="reader-options">
+        <label htmlFor="resolution">Set resolution</label>
+        <input
+          name="resolution"
+          type="number"
+          value={options.resolution}
+          min="100"
+          max="1000"
+          step="10"
+          onChange={(e) =>
+            setOptions({
+              ...options,
+              [e.target.name]: parseInt(e.target.value),
+            })
+          }
+        />
+      </div>
       <QrReader
-        delay={300}
-        style={{ width: "100%" }}
+        className="reader-content"
+        legacyMode={options.legacyMode}
+        resolution={options.resolution}
+        delay={options.delay}
+        facingMode={"environment"}
         onScan={handleScan}
         onError={handleError}
       />

@@ -1,0 +1,7 @@
+.reader-container {
+    flex-direction: column;
+}
+
+.reader-content {
+    width: 100%;
+}

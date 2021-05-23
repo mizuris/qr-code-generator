@@ -1,5 +1,6 @@
 import React, { FormEvent, useState } from "react";
 import QRCode from "qrcode";
+import { Button, Form } from "react-bootstrap";
 
 function CodeGenerator() {
   const [qrText, setQrText] = useState("");
@@ -21,10 +22,19 @@ function CodeGenerator() {
 
   return (
     <div className="generator-container">
-      <form className="generator-form" onSubmit={handleSubmit}>
-        <input value={qrText} onChange={(e) => setQrText(e.target.value)} />
-        <input type="submit" value="Generate code" />
-      </form>
+      <Form className="generator-form" onSubmit={handleSubmit}>
+        <Form.Label>Get your QR code</Form.Label>
+        <Form.Control
+          className="generator-input"
+          type="text"
+          value={qrText}
+          placeholder="Text to convert"
+          onChange={(e) => setQrText(e.target.value)}
+        />
+        <Button type="submit" variant="success">
+          Generate code
+        </Button>
+      </Form>
       {qrUrl ? (
         <a href={qrUrl} download={qrText}>
           <img className="generator-result" src={qrUrl} alt={qrText} />
