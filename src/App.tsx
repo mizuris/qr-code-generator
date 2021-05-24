@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./App.css";
 import CodeGenerator from "./Components/CodeGenerator";
 import CodeReader from "./Components/CodeReader";
-import { Container, Row, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
 
@@ -16,9 +16,9 @@ function App() {
   };
 
   return (
-    <Container className="App p-0 m-0">
+    <div className="App p-0 m-0">
       <Header />
-      <Row className="p-2">
+      <div className="p-2">
         <Button
           className="switch-button ml-auto mr-auto mb-3"
           variant="dark"
@@ -26,12 +26,12 @@ function App() {
         >
           Switch to {displayComponent === "generator" ? "reader" : "generator"}
         </Button>
-      </Row>
-      <Row className="main-content">
+      </div>
+      <div className="main-content">
         {displayComponent === "generator" ? <CodeGenerator /> : <CodeReader />}
-      </Row>
+      </div>
       <Footer />
-    </Container>
+    </div>
   );
 }
 

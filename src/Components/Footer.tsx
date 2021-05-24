@@ -30,7 +30,7 @@ function Footer() {
         >
           <FaLinkedinIn />
         </Button>
-        <p>
+        <p className="text-muted footer-text">
           Author: <strong>Piotr Bątor.</strong>
         </p>
       </Container>

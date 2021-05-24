@@ -46,3 +46,10 @@
     transform: translateX(0);
   }
 }
+
+
+@media screen and (min-width: 992px) {
+  .generator-result {
+    width: 20%;
+  }
+}
