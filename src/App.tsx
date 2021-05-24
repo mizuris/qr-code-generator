@@ -2,7 +2,9 @@ import React, { useState } from "react";
 import "./App.css";
 import CodeGenerator from "./Components/CodeGenerator";
 import CodeReader from "./Components/CodeReader";
-import { Container, Row, Col, Button } from "react-bootstrap";
+import { Container, Row, Button } from "react-bootstrap";
+import Footer from "./Components/Footer";
+import Header from "./Components/Header";
 
 function App() {
   const [displayComponent, setDisplayComponent] = useState("generator");
@@ -14,32 +16,22 @@ function App() {
   };
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <h1>QRCode Center</h1>
-        <h4 className="text-muted">Scan and generate your QR codes!</h4>
-      </header>
-      <Button
-        className="switch-button"
-        variant="dark"
-        onClick={() => switchDisplay()}
-      >
-        Switch to {displayComponent === "generator" ? "reader" : "generator"}
-      </Button>
-      <Container className="App-content">
-        <Row>
-          {displayComponent === "generator" ? (
-            <Col>
-              <CodeGenerator />
-            </Col>
-          ) : (
-            <Col>
-              <CodeReader />
-            </Col>
-          )}
-        </Row>
-      </Container>
-    </div>
+    <Container className="App p-0 m-0">
+      <Header />
+      <Row className="p-2">
+        <Button
+          className="switch-button ml-auto mr-auto mb-3"
+          variant="dark"
+          onClick={() => switchDisplay()}
+        >
+          Switch to {displayComponent === "generator" ? "reader" : "generator"}
+        </Button>
+      </Row>
+      <Row className="main-content">
+        {displayComponent === "generator" ? <CodeGenerator /> : <CodeReader />}
+      </Row>
+      <Footer />
+    </Container>
   );
 }
 

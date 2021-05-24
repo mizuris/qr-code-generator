@@ -24,15 +24,7 @@ function CodeReader() {
   };
 
   return (
-    <div className="reader-container">
-      {scan.result ? (
-        <div className="reader-result">
-          <h6 className="text-muted">Scanned code message:</h6>
-          <p className="reader-result-text">{scan.result}</p>
-        </div>
-      ) : (
-        ""
-      )}
+    <div className="content-container">
       <QrReader
         className="reader-content ml-auto mr-auto"
         legacyMode={options.legacyMode}
@@ -42,6 +34,18 @@ function CodeReader() {
         onScan={handleScan}
         onError={handleError}
       />
+      {scan.result ? (
+        <div className="reader-result">
+          <h6 className="text-muted">Scanned code result:</h6>
+          <a className="reader-result-text" href={scan.result} target="blank">
+            {scan.result}
+          </a>
+        </div>
+      ) : (
+        <div className="reader-no-result">
+          <h6 className="text-muted">Scan QR code to get result.</h6>
+        </div>
+      )}
     </div>
   );
 }

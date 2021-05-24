@@ -1,8 +1,31 @@
 .reader-content {
   width: 60%;
+  animation: fadeIn 400ms ease-in forwards;
+  margin: 30px;
+}
+
+.reader-result {
+  animation: slideRight 200ms ease-in forwards;
 }
 
 .reader-result-text {
-  color: blue;
   font-weight: 700;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideRight {
+  from {
+    transform: translateX(-100%);
+  }
+  to {
+    transform: translateX(0);
+  }
 }

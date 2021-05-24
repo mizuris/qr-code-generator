@@ -15,13 +15,14 @@ function CodeGenerator() {
     }
   };
 
-  const handleSubmit = (e: FormEvent) => {
+  const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
-    generateQRCode();
+    await generateQRCode();
+    setQrText("");
   };
 
   return (
-    <div className="generator-container">
+    <div className="content-container generator">
       <Form className="generator-form ml-auto mr-auto" onSubmit={handleSubmit}>
         <Form.Control
           className="generator-input"
@@ -39,6 +40,9 @@ function CodeGenerator() {
           <a href={qrUrl} download={qrText}>
             <img className="generator-result-img" src={qrUrl} alt={qrText} />
           </a>
+          <p className="generator-result-text text-muted">
+            Click the code to dowload it.
+          </p>
         </div>
       ) : (
         ""
