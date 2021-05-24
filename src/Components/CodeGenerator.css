@@ -6,10 +6,10 @@
 }
 
 .generator-result {
-    margin-top: 50px;
-    width: 100%;
+  margin-top: 50px;
+  width: 100%;
 }
 
 .generator-result-img {
-    width: 60%;
+  max-width: 200px;
 }

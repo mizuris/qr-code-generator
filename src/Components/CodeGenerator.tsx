@@ -30,7 +30,7 @@ function CodeGenerator() {
           placeholder="Text to convert"
           onChange={(e) => setQrText(e.target.value)}
         />
-        <Button className="generator-button" type="submit" variant="success">
+        <Button className="generator-button" type="submit" variant="warning">
           Generate
         </Button>
       </Form>

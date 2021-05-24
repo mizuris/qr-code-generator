@@ -19,7 +19,11 @@ function App() {
         <h1>QRCode Center</h1>
         <h4 className="text-muted">Scan and generate your QR codes!</h4>
       </header>
-      <Button className="switch-button" onClick={() => switchDisplay()}>
+      <Button
+        className="switch-button"
+        variant="dark"
+        onClick={() => switchDisplay()}
+      >
         Switch to {displayComponent === "generator" ? "reader" : "generator"}
       </Button>
       <Container className="App-content">

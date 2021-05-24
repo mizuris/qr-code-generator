@@ -4,14 +4,25 @@
   height: 100vh;
 }
 
-.App-content {
-  height: 50%;
-}
-
 .App-header {
   margin-bottom: 20px;
   padding: 20px;
 }
+
+.App-header>h1 {
+  color: #F3CC41;
+  font-weight: bold;
+}
+
+.App-header>h4 {
+  font-size: 16px;
+  font-weight: lighter;
+}
+
+.App-content {
+  height: 50%;
+}
+
 
 .switch-button {
   margin-bottom: 40px;
