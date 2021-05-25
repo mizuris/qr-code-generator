@@ -1,11 +1,12 @@
 .reader-content {
-  width: 60%;
+  width: 80%;
+  max-width: 900px;
   animation: fadeIn 400ms ease-in forwards;
-  margin: 30px;
 }
 
 .reader-result {
   animation: slideRight 200ms ease-in forwards;
+  align-self: flex-end;
 }
 
 .reader-result-text {
@@ -16,6 +17,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -25,7 +27,14 @@
   from {
     transform: translateX(-100%);
   }
+
   to {
     transform: translateX(0);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .reader-content {
+    width: 30%;
   }
 }

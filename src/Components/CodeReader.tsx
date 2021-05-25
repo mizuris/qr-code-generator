@@ -35,7 +35,7 @@ function CodeReader() {
         onError={handleError}
       />
       {scan.result ? (
-        <div className="reader-result">
+        <div className="reader-result" key={scan.result}>
           <h6 className="text-muted">Scanned code result:</h6>
           <a className="reader-result-text" href={scan.result} target="blank">
             {scan.result}

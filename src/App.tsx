@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import "./App.css";
+import { AiOutlineReload } from "react-icons/ai";
 import CodeGenerator from "./Components/CodeGenerator";
 import CodeReader from "./Components/CodeReader";
 import { Button } from "react-bootstrap";
@@ -24,7 +25,8 @@ function App() {
           variant="dark"
           onClick={() => switchDisplay()}
         >
-          Switch to {displayComponent === "generator" ? "reader" : "generator"}
+          <AiOutlineReload /> Switch to{" "}
+          {displayComponent === "generator" ? "reader" : "generator"}
         </Button>
       </div>
       <div className="main-content">

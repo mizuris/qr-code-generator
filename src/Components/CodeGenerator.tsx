@@ -5,6 +5,7 @@ import { Button, Form } from "react-bootstrap";
 function CodeGenerator() {
   const [qrText, setQrText] = useState("");
   const [qrUrl, setQrUrl] = useState("");
+  // const downloadRef = useRef();
 
   const generateQRCode = async () => {
     try {
@@ -22,7 +23,7 @@ function CodeGenerator() {
   };
 
   return (
-    <div className="content-container generator">
+    <div className="content-container generator-container">
       <Form className="generator-form ml-auto mr-auto" onSubmit={handleSubmit}>
         <Form.Control
           className="generator-input"
@@ -35,18 +36,20 @@ function CodeGenerator() {
           Generate
         </Button>
       </Form>
-      {qrUrl ? (
-        <div className="generator-result">
-          <a href={qrUrl} download={qrText}>
-            <img className="generator-result-img" src={qrUrl} alt={qrText} />
-          </a>
-          <p className="generator-result-text text-muted">
-            Click the code to dowload it.
-          </p>
-        </div>
-      ) : (
-        ""
-      )}
+      <div className="generator-result ml-auto mr-auto" key={qrUrl}>
+        {qrUrl ? (
+          <>
+            <a href={qrUrl} download={qrText}>
+              <img className="generator-result-img" src={qrUrl} alt={qrText} />
+            </a>
+            <p className="generator-result-text text-muted">
+              Click the code to dowload it.
+            </p>
+          </>
+        ) : (
+          ""
+        )}
+      </div>
     </div>
   );
 }

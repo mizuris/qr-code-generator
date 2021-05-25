@@ -9,7 +9,7 @@ function Footer() {
         <Button
           href="https://www.facebook.com/piotr.bator.33/"
           target="blank"
-          className="m-1"
+          className="m-1 footer-button"
           variant="outline-dark"
         >
           <FaFacebookF />
@@ -17,7 +17,7 @@ function Footer() {
         <Button
           href="https://github.com/mizuris/car-wallet-react"
           target="blank"
-          className="m-1"
+          className="m-1 footer-button"
           variant="outline-dark"
         >
           <FaGithub />
@@ -25,7 +25,7 @@ function Footer() {
         <Button
           href="https://www.linkedin.com/in/piotr-b%C4%85tor-b4b95620a/"
           target="blank"
-          className="m-1"
+          className="m-1 footer-button"
           variant="outline-dark"
         >
           <FaLinkedinIn />
