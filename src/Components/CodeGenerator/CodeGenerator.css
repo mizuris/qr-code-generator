@@ -1,0 +1,50 @@
+.generator-form,
+.generator-result {
+  margin: 0 auto;
+}
+
+.generator-form {
+  width: 80%;
+  display: flex;
+}
+
+.generator-result {
+  width: 60%;
+  align-self: center;
+  animation: fadeIn 500ms ease-in forwards;
+}
+
+.generator-result-img {
+  width: 100%;
+  max-width: 400px;
+}
+
+.generator-result-text {
+  font-size: 12px;
+}
+
+@media screen and (min-width: 992px) {
+  .generator-form {
+    width: 50%;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .generator-form {
+    flex-direction: column;
+  }
+
+  .generator-button {
+    margin: 10px 0;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}

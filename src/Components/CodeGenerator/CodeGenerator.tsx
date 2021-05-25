@@ -1,4 +1,4 @@
-import React, { FormEvent, useState } from "react";
+import React, { FormEvent, useState, useRef } from "react";
 import QRCode from "qrcode";
 import { Button, Form } from "react-bootstrap";
 
@@ -6,10 +6,13 @@ function CodeGenerator() {
   const [qrText, setQrText] = useState("");
   const [qrUrl, setQrUrl] = useState("");
 
+  const scrollRef = useRef<HTMLDivElement>(null);
+
   const generateQRCode = async () => {
     try {
       const response = await QRCode.toDataURL(qrText);
       setQrUrl(response);
+      scrollRef.current?.scrollIntoView({ behavior: "smooth" });
     } catch (error) {
       console.log(error);
     }
@@ -18,11 +21,12 @@ function CodeGenerator() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     await generateQRCode();
+    setQrText("");
   };
 
   return (
-    <div className="content-container">
-      <Form className="generator-form ml-auto mr-auto" onSubmit={handleSubmit}>
+    <>
+      <Form className="generator-form" onSubmit={handleSubmit}>
         <Form.Control
           className="generator-input"
           type="text"
@@ -34,7 +38,7 @@ function CodeGenerator() {
           Generate
         </Button>
       </Form>
-      <div className="generator-result ml-auto mr-auto" key={qrUrl}>
+      <div className="generator-result" key={qrUrl}>
         {qrUrl ? (
           <>
             <a href={qrUrl} download={qrText}>
@@ -43,12 +47,13 @@ function CodeGenerator() {
             <p className="generator-result-text text-muted">
               Click the code to dowload it.
             </p>
+            <div ref={scrollRef}></div>
           </>
         ) : (
           ""
         )}
       </div>
-    </div>
+    </>
   );
 }
 

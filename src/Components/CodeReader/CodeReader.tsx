@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import QrReader from "react-qr-reader";
 
 function CodeReader() {
@@ -6,6 +6,8 @@ function CodeReader() {
     result: "",
     error: "",
   });
+
+  const scrollRef = useRef<HTMLDivElement>(null);
 
   const options = {
     legacyMode: false,
@@ -16,6 +18,7 @@ function CodeReader() {
   const handleScan = (data: string | null) => {
     if (data) {
       setScan({ ...scan, result: data });
+      scrollRef.current?.scrollIntoView({ behavior: "smooth" });
     }
   };
 
@@ -24,9 +27,9 @@ function CodeReader() {
   };
 
   return (
-    <div className="content-container">
+    <>
       <QrReader
-        className="reader-content ml-auto mr-auto"
+        className="reader-content"
         legacyMode={options.legacyMode}
         resolution={options.resolution}
         delay={options.delay}
@@ -40,13 +43,14 @@ function CodeReader() {
           <a className="reader-result-text" href={scan.result} target="blank">
             {scan.result}
           </a>
+          <div ref={scrollRef}></div>
         </div>
       ) : (
         <div className="reader-no-result">
           <h6 className="text-muted">Scan QR code to get result.</h6>
         </div>
       )}
-    </div>
+    </>
   );
 }
 

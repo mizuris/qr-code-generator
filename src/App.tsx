@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import "./App.css";
 import { AiOutlineReload } from "react-icons/ai";
-import CodeGenerator from "./Components/CodeGenerator";
-import CodeReader from "./Components/CodeReader";
+import CodeGenerator from "./Components/CodeGenerator/CodeGenerator";
+import CodeReader from "./Components/CodeReader/CodeReader";
 import { Button } from "react-bootstrap";
 import Footer from "./Components/Footer";
 import Header from "./Components/Header";
@@ -29,9 +28,9 @@ function App() {
           {displayComponent === "generator" ? "reader" : "generator"}
         </Button>
       </div>
-      <div className="main-content">
+      <main className="main-content">
         {displayComponent === "generator" ? <CodeGenerator /> : <CodeReader />}
-      </div>
+      </main>
       <Footer />
     </div>
   );

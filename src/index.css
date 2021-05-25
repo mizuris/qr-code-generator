@@ -1,5 +1,6 @@
-@import "./Components/CodeGenerator.css";
-@import "./Components/CodeReader.css";
+@import "./Components/CodeGenerator/CodeGenerator.css";
+@import "./Components/CodeReader/CodeReader.css";
+@import "./App.css";
 
 body {
   margin: 0;
