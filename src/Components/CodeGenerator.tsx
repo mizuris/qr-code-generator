@@ -5,7 +5,6 @@ import { Button, Form } from "react-bootstrap";
 function CodeGenerator() {
   const [qrText, setQrText] = useState("");
   const [qrUrl, setQrUrl] = useState("");
-  // const downloadRef = useRef();
 
   const generateQRCode = async () => {
     try {
@@ -19,11 +18,10 @@ function CodeGenerator() {
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault();
     await generateQRCode();
-    setQrText("");
   };
 
   return (
-    <div className="content-container generator-container">
+    <div className="content-container">
       <Form className="generator-form ml-auto mr-auto" onSubmit={handleSubmit}>
         <Form.Control
           className="generator-input"
