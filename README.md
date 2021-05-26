@@ -1,6 +1,7 @@
 # QR Code center
 
 This project was created with use of [React](https://reactjs.org/) with typescript template.
+Live version - [here](https://mizuris.github.io/qr-code-generator/).
 
 ## Purpose
 
